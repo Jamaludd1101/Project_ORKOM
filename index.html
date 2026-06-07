@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulasi OS - Printer Bersama</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Simulasi Operating System</h1>
+        <p>Studi Kasus: Printer Bersama</p>
+      </header>
+
+      <section class="control-panel card">
+        <div class="control-group">
+          <label for="simulationSelect">Pilih Simulasi</label>
+          <select id="simulationSelect">
+            <option value="normal">Normal</option>
+            <option value="mutex">Mutual Exclusion</option>
+            <option value="synchronization">Synchronization</option>
+            <option value="deadlock">Deadlock</option>
+            <option value="starvation">Starvation</option>
+          </select>
+        </div>
+
+        <div class="buttons">
+          <button class="btn primary" onclick="loadSimulation()">
+            Mulai Simulasi
+          </button>
+          <button class="btn next" onclick="nextStep()">Next Step</button>
+          <button class="btn reset" onclick="resetSimulation()">Reset</button>
+        </div>
+      </section>
+
+      <div class="progress-container" id="progressContainer"></div>
+
+      <div class="stage-title" id="stageTitle">
+        Pilih simulasi lalu klik "Mulai Simulasi"
+      </div>
+
+      <main class="main-grid">
+        <section class="card visual-card">
+          <h2>Visual Simulasi</h2>
+
+          <div class="visual-layout">
+            <div class="lane">
+              <div class="box user" id="userA">User A</div>
+              <div class="arrow" id="arrowA">→</div>
+              <div class="box printer" id="printer1">Printer 1</div>
+            </div>
+
+            <div class="lane">
+              <div class="box user" id="userB">User B</div>
+              <div class="arrow" id="arrowB">→</div>
+              <div class="box printer hidden" id="printer2">Printer 2</div>
+            </div>
+
+            <div class="mutex-wrap hidden" id="mutexWrap">
+              <div class="box mutex hidden" id="mutexBox">Mutex</div>
+            </div>
+
+            <div class="queue-card hidden" id="queueCard">
+              <h3>Antrian Dokumen</h3>
+              <div id="queueList" class="queue-list"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card log-card">
+          <h2>Event Log</h2>
+          <div class="log" id="logArea"></div>
+        </section>
+      </main>
+
+      <section class="status-box card">
+        <h2>Status Saat Ini</h2>
+        <p id="statusText">Belum ada simulasi berjalan.</p>
+
+        <div class="info-block">
+          <h3>Penjelasan</h3>
+          <p id="descriptionText">
+            Pilih simulasi lalu jalankan untuk melihat prosesnya.
+          </p>
+        </div>
+
+        <div class="info-block">
+          <h3>Kesimpulan</h3>
+          <p id="conclusionText">-</p>
+        </div>
+      </section>
+    </div>
+
+    <script src="normal.js"></script>
+    <script src="mutual-exclusion.js"></script>
+    <script src="synchronization.js"></script>
+    <script src="deadlock.js"></script>
+    <script src="starvation.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
